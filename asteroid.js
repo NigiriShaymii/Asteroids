@@ -12,24 +12,27 @@ function Asteroid(pos, r) {
       this.r = random(15, 50);
   }
 
+  this.img = loadImage('images/sugarOne.png');
   this.vel = p5.Vector.random2D();
   this.total = floor(random(5, 15));
   this.offset = [];
-  for (var i = 0 ; i < this.total; i++)
-  {
-    this.offset[i] = random(-this.r * 0.5, this.r);
-  }
+  // for (var i = 0 ; i < this.total; i++)
+  // {
+  //   this.offset[i] = random(-this.r * 0.5, this.r);
+  // }
 
   this.update = function() {
     this.pos.add(this.vel);
   }
 
+  //Spawns asteroid
   this.render = function() {
     push();
-    stroke(255);
-    noFill();
+    // stroke(255);
+    // noFill();
     translate(this.pos.x, this.pos.y);
     //ellipse(0, 0, this.r * 2);
+
     beginShape();
     for(var i = 0; i < this.total; i++)
     {
@@ -40,9 +43,12 @@ function Asteroid(pos, r) {
        vertex(x, y);
     }
     endShape(CLOSE);
+    image(this.img, -50, -50, 0, 0);
+
     pop();
   }
 
+  //Splits asteroids
   this.breakup = function() {
     var newA = [];
     newA[0] = new Asteroid(this.pos, this.r);
@@ -50,6 +56,7 @@ function Asteroid(pos, r) {
     return newA;
   }
 
+  //Teleport asteroids to the opposite side
   this.edges = function() {
     if(this.pos.x > width + this.r) {
       this.pos.x = -this.r;

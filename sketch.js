@@ -2,17 +2,23 @@ var ship;
 var asteroids = [];
 var lasers = [];
 let space = "zoom";
+let count = 2;
+let score = 0;
+
+function preload() {
+  sugarOne = loadImage('images/sugarOne.png');
+  cell = loadImage('images/cell.png');
+}
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
   textAlign(CENTER);
   textSize(40);
   ship = new Ship();
-  for (var i = 0; i < 5; i++) {
+  for (var i = 0; i < count; i++) {
     asteroids.push(new Asteroid());
   }
   asteroids.push(new Asteroid());
-
 }
 
 function draw() {
@@ -25,7 +31,7 @@ function draw() {
       gamePlay();
       break;
     case ('youWon'):
-
+      youWon();
       break;
     case ('youLose'):
       youLose();
@@ -33,7 +39,6 @@ function draw() {
     default:
       break;
   }
-
 }
 
 function zoomScreen() {
@@ -51,6 +56,7 @@ function gamePlay() {
       console.log('ouch!');
       space = 'youLose';
     }
+
     asteroids[i].render();
     asteroids[i].update();
     asteroids[i].edges();
@@ -88,6 +94,13 @@ function youLose() {
   background(0);
   fill(255);
   text('You lose.', windowWidth / 2, windowHeight / 2);
+  text('\n\n Refresh the webpage to play again', windowWidth / 2, windowHeight / 2);
+}
+
+function youWon() {
+  background(0);
+  fill(255);
+  text('You win!', windowWidth / 2, windowHeight / 2);
   text('\n\n Refresh the webpage to play again', windowWidth / 2, windowHeight / 2);
 }
 

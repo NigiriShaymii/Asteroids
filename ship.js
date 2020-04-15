@@ -5,6 +5,7 @@ function Ship() {
   this.rotation = 0;
   this.vel = createVector(0, 0);
   this.isBoosting = false;
+  this.img = loadImage('images/cell.png');
 
   this.boosting = function(b) {
     this.isBoosting = b;
@@ -40,6 +41,9 @@ function Ship() {
     fill(0);
     stroke(255);
     triangle(-this.r, this.r, this.r, this.r, 0, -this.r);
+    image(this.img, -25, -21, 50, 50);
+
+
     pop();
   }
 
