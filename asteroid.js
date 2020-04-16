@@ -6,8 +6,11 @@ function Asteroid(pos, r) {
   } else {
     this.pos = createVector(random(width), random(height));
   }
+
+  //hitbox
+
   if(r) {
-      this.r = r * 0.5;
+      this.r = r;
   } else {
       this.r = random(15, 50);
   }
