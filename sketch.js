@@ -82,6 +82,7 @@ function gamePlay() {
           //   var newAsteroids = asteroids[j].breakup();
           //   asteroids = asteroids.concat(newAsteroids);
           // }
+          
           score += 1;
           asteroids.splice(j, 1);
           lasers.splice(i, 1);
