@@ -18,7 +18,7 @@ function setup() {
   textAlign(CENTER);
   textSize(40);
   ship = new Ship();
-  count = round(random(30, 50));
+  count = round(random(100, 150));
   console.log(count);
 
   for (var i = 0; i < count; i++) {
