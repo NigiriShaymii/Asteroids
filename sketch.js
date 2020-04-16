@@ -52,9 +52,20 @@ function draw() {
 
 function zoomScreen() {
   background(0);
+  fill(255, 0, 0);
+
+  textSize(100);
+  text('Sugar Rush', windowWidth / 2, windowHeight / 2);
+
   fill(255);
-  text('Press the "S" key to start playing...', windowWidth / 2, windowHeight / 2);
-  text('\n If you immediately lost, refresh the page.', windowWidth / 2, windowHeight / 2);
+  textSize(40);
+  text('\n\n\nPress the "S" key to start playing...', windowWidth / 2, windowHeight / 2);
+  text('\n\n If you immediately lost, refresh the page.', windowWidth / 2, windowHeight / 2);
+
+  textSize(20);
+  text('\n\n\n\n\n\n\n\n\n\n Left Arrow & Right Arrow: Turn the cell', windowWidth / 2, windowHeight / 2);
+  text('\n\n\n\n\n\n\n\n\n\n\n Up Arrow: Move forward', windowWidth / 2, windowHeight / 2);
+  text('\n\n\n\n\n\n\n\n\n\n\n\n Space: Shoot insulin', windowWidth / 2, windowHeight / 2);
 }
 
 
@@ -82,7 +93,7 @@ function gamePlay() {
           //   var newAsteroids = asteroids[j].breakup();
           //   asteroids = asteroids.concat(newAsteroids);
           // }
-          
+
           score += 1;
           asteroids.splice(j, 1);
           lasers.splice(i, 1);
@@ -109,14 +120,14 @@ function gamePlay() {
 function youLose() {
   background(0);
   fill(255);
-  text('You lose.', windowWidth / 2, windowHeight / 2);
+  text(" You're overwhelmed by all that sugar!", windowWidth / 2, windowHeight / 2);
   text('\n\n Refresh the webpage to play again', windowWidth / 2, windowHeight / 2);
 }
 
 function youWon() {
   background(0);
   fill(255);
-  text('You win!', windowWidth / 2, windowHeight / 2);
+  text('You are hardworking and healthy!', windowWidth / 2, windowHeight / 2);
   text('\n\n Refresh the webpage to play again', windowWidth / 2, windowHeight / 2);
 }
 
