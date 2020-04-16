@@ -69,7 +69,7 @@ function gameInit() {
   count = round(random(25, 50));
   console.log(count);
 
-  //spawns asteroids in the canvas
+  //spawns asteroids in the canvas,
   for (var i = 0; i < count; i++) {
     asteroids.push(new Asteroid());
   }
