@@ -4,6 +4,7 @@ var lasers = [];
 let space = "zoom";
 let count = 0;
 let score = 0;
+let gameStarted = false;
 
 function preload() {
   sugarOne = loadImage('images/sugarOne.png');
@@ -17,26 +18,21 @@ function setup() {
 
   textAlign(CENTER);
   textSize(40);
-  ship = new Ship();
-  count = round(random(50, 150));
-  console.log(count);
-
-  for (var i = 0; i < count; i++) {
-    asteroids.push(new Asteroid());
-  }
-  asteroids.push(new Asteroid());
 }
 
 function draw() {
 
   background(blood);
 
-
   switch (space) {
     case ('zoom'):
       zoomScreen();
       break;
     case ('gamePlay'):
+      if (!gameStarted) {
+        gameInit();
+        gameStarted = true;
+      }
       gamePlay();
       break;
     case ('youWon'):
@@ -68,6 +64,17 @@ function zoomScreen() {
   text('\n\n\n\n\n\n\n\n\n\n\n\n Space: Shoot insulin', windowWidth / 2, windowHeight / 2);
 }
 
+function gameInit() {
+  ship = new Ship();
+  count = round(random(25, 50));
+  console.log(count);
+
+  //spawns asteroids in the canvas
+  for (var i = 0; i < count; i++) {
+    asteroids.push(new Asteroid());
+  }
+
+}
 
 function gamePlay() {
   for (var i = 0; i < asteroids.length; i++) {
@@ -103,11 +110,10 @@ function gamePlay() {
     }
   }
 
-  text("Score: " + score, width/10, height /20);
+  text("Score: " + score, width / 10, height / 20);
   console.log(lasers.length);
 
-  if(score === count + 1)
-  {
+  if (score === count) {
     space = "youWon";
   }
 

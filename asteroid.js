@@ -4,7 +4,8 @@ function Asteroid(pos, r) {
   if(pos){
     this.pos = pos.copy();
   } else {
-    this.pos = createVector(random(width), random(height));
+    this.pos =
+      createVector((random(width / 2 - 50), random(height / 2 - 50)), (random(width / 2 + 50), random(height / 2 + 50)));
   }
 
   //hitbox
